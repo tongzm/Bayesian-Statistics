@@ -388,7 +388,9 @@ data(brfss)</code></pre>
 <div class="exercise">
 <p>Confirm your answer by running the code given below the distribution plot in the app.</p>
 </div>
-<pre class="r"><code># Type your code for Exercise 1 here.</code></pre>
+<pre class="r"><code># Type your code for Exercise 1 here.
+qnorm(c(0.025, 0.975), mean = 10, sd = 2.236)</code></pre>
+<pre><code>## [1]  5.617521 14.382479</code></pre>
 <div class="question">
 <p>Suppose the posterior distribution of <span class="math inline">\(p\)</span> follows a Beta distribution with <span class="math inline">\(\alpha = 2\)</span> and <span class="math inline">\(\beta = 5\)</span>. Which of the following are the bounds of a 90% credible interval for <span class="math inline">\(p\)</span>? Answer this question using the app.</p>
 <ul>
@@ -401,7 +403,9 @@ data(brfss)</code></pre>
 <div class="exercise">
 <p>Confirm your answer by running the code given below the distribution plot in the app.</p>
 </div>
-<pre class="r"><code># Type your code for the Exercise 2 here.</code></pre>
+<pre class="r"><code># Type your code for the Exercise 2 here.
+qbeta(c(0.05,0.95),shape1 = 2,shape2 = 5)</code></pre>
+<pre><code>## [1] 0.06284989 0.58180341</code></pre>
 <div class="question">
 <p>Suppose the posterior distribution of <span class="math inline">\(\lambda\)</span> follows a Gamma distribution with <span class="math inline">\(\alpha = 4\)</span> and <span class="math inline">\(\beta = 8\)</span>. Which of the following are the bounds of a 99% credible interval for <span class="math inline">\(\lambda\)</span>? Answer this question using the app.</p>
 <ul>
@@ -414,7 +418,9 @@ data(brfss)</code></pre>
 <div class="exercise">
 <p>Confirm your answer by running the code given below the distribution plot in the app.</p>
 </div>
-<pre class="r"><code># Type your code for the Exercise 3 here.</code></pre>
+<pre class="r"><code># Type your code for the Exercise 3 here.
+qgamma(c(0.005,0.995),shape = 4,rate = 8)</code></pre>
+<pre><code>## [1] 0.08402582 1.37218469</code></pre>
 </div>
 <div id="beta-binomial-conjugacy" class="section level2">
 <h2>Beta-Binomial Conjugacy</h2>
@@ -446,6 +452,8 @@ x &lt;- sum(brfss$sex == &quot;Female&quot;)</code></pre>
 <li>(0.468, 0.496)</li>
 </ul>
 </div>
+<pre class="r"><code>qbeta(c(0.025,0.975),shape1 = 1+x,shape2 = 1+n-x)</code></pre>
+<pre><code>## [1] 0.5033405 0.5310327</code></pre>
 <div class="question">
 <p>Which of the following is the correct Bayesian interpretation of this interval?</p>
 <ul>
@@ -532,7 +540,12 @@ x &lt;- sum(brfss$sex == &quot;Female&quot;)</code></pre>
 <li>Gamma(<span class="math inline">\(a = 19\)</span>, <span class="math inline">\(b = 8\)</span>)</li>
 </ul>
 </div>
-<pre class="r"><code># Type your code for Question 10 here.</code></pre>
+<pre class="r"><code># Type your code for Question 10 here.
+x=c(2,3,4,5,4)
+a=4
+b=1
+a_after=a+sum(x)
+b_after=length(x)</code></pre>
 <div class="question">
 <p>The government recommends that Americans consume approximately 5 servings of fruits per day. Which of the following represents a weak prior that Americans on average follow this recommendation?</p>
 <ul>
@@ -551,7 +564,15 @@ x &lt;- sum(brfss$sex == &quot;Female&quot;)</code></pre>
 <li>Gamma(<span class="math inline">\(\alpha = 8115\)</span>, <span class="math inline">\(\beta = 5005\)</span>)</li>
 </ul>
 </div>
-<pre class="r"><code># Type your code for Question 12 here.</code></pre>
+<pre class="r"><code># Type your code for Question 12 here.
+a=5
+b=1
+a_after= a+ sum(brfss$fruit_per_day)
+b_after= b+length(brfss$fruit_per_day)
+a_after</code></pre>
+<pre><code>## [1] 8119</code></pre>
+<pre class="r"><code>b_after</code></pre>
+<pre><code>## [1] 5001</code></pre>
 <div class="question">
 <p>Using the correct posterior distribution from the previous question, calculate the 90% credible interval for <span class="math inline">\(\lambda\)</span>, the expected number of servings of fruit Americans consume per day.</p>
 <ul>

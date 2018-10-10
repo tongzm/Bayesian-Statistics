@@ -93,6 +93,7 @@ the app.
 
 ```{r normal-ci}
 # Type your code for Exercise 1 here.
+qnorm(c(0.025, 0.975), mean = 10, sd = 2.236)
 ```
 
 <div class="question">
@@ -113,6 +114,7 @@ the app.
 
 ```{r beta-ci}
 # Type your code for the Exercise 2 here.
+qbeta(c(0.05,0.95),shape1 = 2,shape2 = 5)
 ```
 
 
@@ -134,6 +136,7 @@ the app.
 
 ```{r gamma-ci}
 # Type your code for the Exercise 3 here.
+qgamma(c(0.005,0.995),shape = 4,rate = 8)
 ```
 
 
@@ -215,6 +218,9 @@ shown above. Use the credible interval app to answer this question.
 * (0.507, 0.530)
 * (0.468, 0.496)
 </div>
+```{r}
+qbeta(c(0.025,0.975),shape1 = 1+x,shape2 = 1+n-x)
+```
 
 <div class="question">
 Which of the following is the correct Bayesian interpretation of this interval?
@@ -379,6 +385,11 @@ have observed the data $x = \{2, 3, 4, 5, 4\}$.
 
 ```{r q10}
 # Type your code for Question 10 here.
+x=c(2,3,4,5,4)
+a=4
+b=1
+a_after=a+sum(x)
+b_after=length(x)
 ```
 
 <div class="question">
@@ -405,6 +416,12 @@ posterior distribution.
 
 ```{r q12}
 # Type your code for Question 12 here.
+a=5
+b=1
+a_after= a+ sum(brfss$fruit_per_day)
+b_after= b+length(brfss$fruit_per_day)
+a_after
+b_after
 ```
 
 
